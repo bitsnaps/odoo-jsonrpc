@@ -9,12 +9,17 @@ Initialize odoo client
 ```javascript
 const odoo = new OdooRPC({
     host: 'http://localhost',
-    database: 'demo_enterprise',
-    username: 'admin',
-    password: 'admin',
+    database: 'demo_enterprise'
+})
+
+odoo.login(username, password).then((user) => {
+    console.log(`Welcome ${user.name} (uid: ${user.uid})`);
+}).catch( (error ) => {
+    console.error(error);
 })
 ```
 
+Note: You must be logged in before performing any of the following operations.
 
 ### Browse
 
